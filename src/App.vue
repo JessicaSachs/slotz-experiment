@@ -1,19 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchForm>
+      <slot><BaseButton slot="reference">BaseButton from App: Click me!</BaseButton></slot>
+    </SearchForm>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { Vue, Component } from 'vue-property-decorator';
+import SearchForm from './components/SearchForm';
+import BaseButton from './components/BaseButton';
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+@Component({ components: { SearchForm, BaseButton }})
+class App extends Vue {
+
 }
+
+export default App;
+
 </script>
 
 <style lang="scss">
